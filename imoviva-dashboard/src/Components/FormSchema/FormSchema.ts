@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const schemaFormApartment = z.object({
-       
+        tipo_imovel: z.string(),
         titulo: z.string().min(1, 'Campo obrigatório'),
         preco: z.string().min(1, 'Campo obrigatório'),
         dimensoes: z.string().min(1, 'Campo obrigatório'),
