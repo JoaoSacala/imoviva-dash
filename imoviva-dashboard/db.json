@@ -1,0 +1,22 @@
+{
+  "properties": [
+    {
+      "tipo_imovel": "Apartamento",
+      "titulo": "Apartamento no kilamba",
+      "preco": "32",
+      "dimensoes": "32",
+      "municipio": "luanda",
+      "distrito": "233",
+      "bairro": "gg",
+      "fotos": {
+        "0": "WDMI8378.JPG"
+      },
+      "quartos": "323232",
+      "banheiros": "32",
+      "suites": "23",
+      "detalhes": "yyy",
+      "tipo_anuncio": "Arrendar",
+      "id": 1
+    }
+  ]
+}

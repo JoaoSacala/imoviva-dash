@@ -1,0 +1,15 @@
+export type test =  {
+        tipo_imovel?: string,
+        titulo: string,
+        preco: string,
+        dimensoes: string,
+        municipio: string,
+        distrito: string,
+        bairro: string,
+        fotos: [],
+        quartos?: string,
+        banheiros?: string,
+        suites?: string,
+        detalhes: string,
+        tipo_anuncio: string,
+}

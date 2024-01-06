@@ -1,0 +1,60 @@
+import { z } from "zod";
+
+export const schemaFormApartment = z.object({
+       
+        titulo: z.string().min(1, 'Campo obrigatório'),
+        preco: z.string().min(1, 'Campo obrigatório'),
+        dimensoes: z.string().min(1, 'Campo obrigatório'),
+        municipio: z.string(),
+        distrito: z.string().min(1, 'Campo obrigatório'),
+        bairroz: z.string().min(1, 'Campo obrigatório'),
+        fotos: z.instanceof(FileList),
+        quartos: z.string().min(1, 'Campo obrigatório'),
+        banheiros: z.string().min(1, 'Campo obrigatório'),
+        suites: z.string().min(1, 'Campo obrigatório'),
+        detalhes: z.string(),
+        tipo_anuncio: z.string(),
+})
+
+export const schemaFormHouse = z.object({
+        tipo_imovel: z.string(),
+        titulo: z.string().min(1, 'Campo obrigatório'),
+        preco: z.string().min(1, 'Campo obrigatório'),
+        dimensoes: z.string().min(1, 'Campo obrigatório'),
+        municipio: z.string(),
+        distrito: z.string().min(1, 'Campo obrigatório'),
+        bairro: z.string().min(1, 'Campo obrigatório'),
+        fotos: z.instanceof(FileList),
+        quartos: z.string().min(1, 'Campo obrigatório'),
+        banheiros: z.string().min(1, 'Campo obrigatório'),
+        suites: z.string().min(1, 'Campo obrigatório'),
+        detalhes: z.string(),
+        tipo_anuncio: z.string(),
+})
+
+export const schemaFormCommercial = z.object({
+        tipo_imovel: z.string(),
+        titulo: z.string().min(1, 'Campo obrigatório'),
+        preco: z.string().min(1, 'Campo obrigatório'),
+        dimensoes: z.string().min(1, 'Campo obrigatório'),
+        municipio: z.string(),
+        distrito: z.string().min(1, 'Campo obrigatório'),
+        bairro: z.string().min(1, 'Campo obrigatório'),
+        fotos: z.instanceof(FileList),
+        banheiros: z.string().min(1, 'Campo obrigatório'),
+        detalhes: z.string(),
+        tipo_anuncio: z.string(),
+})
+
+export const schemaFormGround = z.object({
+        tipo_imovel: z.string(),
+        titulo: z.string().min(1, 'Campo obrigatório'),
+        preco: z.string().min(1, 'Campo obrigatório'),
+        dimensoes: z.string().min(1, 'Campo obrigatório'),
+        municipio: z.string(),
+        distrito: z.string().min(1, 'Campo obrigatório'),
+        bairro: z.string().min(1, 'Campo obrigatório'),
+        fotos: z.instanceof(FileList),
+        detalhes: z.string(),
+        tipo_anuncio: z.string(),
+})
