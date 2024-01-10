@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 import { useForm } from "react-hook-form";
 import { FormApartmentProps } from "../FormType/FormType";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { schemaFormApartment } from "../FormSchema/FormSchema";
+import { schemaFormApartment } from "../Schemas/FormSchema";
 import { Axios } from "../../axios.config";
 
 

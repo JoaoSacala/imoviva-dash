@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { FormGroundProps } from "../FormType/FormType";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { schemaFormGround } from "../FormSchema/FormSchema";
+import { schemaFormGround } from "../Schemas/FormSchema";
 import { Axios } from "../../axios.config";
 import { toast } from "react-toastify";
 

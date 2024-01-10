@@ -10,8 +10,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { DashboardPage } from './pages/dashboard.tsx'
 import { PropertiesPage } from './pages/properties.tsx'
 import { ComponentRadio } from './Components/Context/CreateContext.tsx'
+import Login from './pages/login.tsx';
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />
+  },
   {
     element: <App />,
     children: [

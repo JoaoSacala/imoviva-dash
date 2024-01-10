@@ -7,7 +7,7 @@ export const schemaFormApartment = z.object({
         dimensoes: z.string().min(1, 'Campo obrigatório'),
         municipio: z.string(),
         distrito: z.string().min(1, 'Campo obrigatório'),
-        bairroz: z.string().min(1, 'Campo obrigatório'),
+        bairro: z.string().min(1, 'Campo obrigatório'),
         fotos: z.instanceof(FileList),
         quartos: z.string().min(1, 'Campo obrigatório'),
         banheiros: z.string().min(1, 'Campo obrigatório'),

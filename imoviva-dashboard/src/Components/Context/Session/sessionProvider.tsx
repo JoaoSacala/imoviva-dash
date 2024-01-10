@@ -23,7 +23,7 @@ export default function SessionProvider({ children }: { children: React.ReactNod
           console.error("Validation error:", error);
         }
       } else {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
       }
     };
     handleAuthenticated();
@@ -33,7 +33,7 @@ export default function SessionProvider({ children }: { children: React.ReactNod
     //apagar os cookies "webschool.token"
     destroyCookie(undefined, "imoviva.token");
     // e fazer reload da pagina 
-    navigate("/login");
+    navigate("/");
   }
 
   return user && (

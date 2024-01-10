@@ -3,11 +3,13 @@ import { SideBar } from "./Components/SideBar"
 import { SideBarComponent } from "./Components/SideBar/SideBarComponent"
 import { Outlet } from "react-router-dom"
 import { Header } from "./Components/Header/Header"
+import SessionProvider from "./Components/Context/Session/sessionProvider"
 
 
 function App() {
 
   return (
+    <SessionProvider>
     <div className="w-screen h-screen overflow-hidden flex">
       <SideBar.Root>
         <SideBar.Logo />
@@ -27,6 +29,7 @@ function App() {
         </div>
       </div>
     </div>
+    </SessionProvider>
   )
 }
 

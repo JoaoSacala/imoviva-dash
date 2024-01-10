@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { schemaFormApartment, schemaFormCommercial, schemaFormGround, schemaFormHouse } from "../FormSchema/FormSchema";
+import { schemaFormApartment, schemaFormCommercial, schemaFormGround, schemaFormHouse } from "../Schemas/FormSchema";
 
 export type FormApartmentProps = z.infer<typeof schemaFormApartment>
 export type FormHouseProps = z.infer<typeof schemaFormHouse>
