@@ -1,12 +1,18 @@
-import { Building2, PieChart, Users2 } from "lucide-react"
+import { Building2, LogOut, PieChart, Users2 } from "lucide-react"
 import { SideBar } from "./Components/SideBar"
 import { SideBarComponent } from "./Components/SideBar/SideBarComponent"
 import { Outlet } from "react-router-dom"
 import { Header } from "./Components/Header/Header"
 import SessionProvider from "./Components/Context/Session/sessionProvider"
+import { destroyCookie } from "nookies"
 
 
 function App() {
+
+  function Logout() {
+    destroyCookie(undefined, "imoviva.token")
+    location.reload()
+  }
 
   return (
     <SessionProvider>
@@ -17,8 +23,12 @@ function App() {
           <SideBar.Items text="Dashboard" link="/dashboard" icon={PieChart} />
           <SideBar.Items text="Imoveis" link="/dashboard/properties" icon={Building2} />
           <SideBar.Items text="Funcionários" link="/dashboard/employee" icon={Users2} />
+          <button onClick={Logout}>
+            <LogOut />
+          </button>
         </SideBarComponent>
       </SideBar.Root>
+
 
       <div className="flex flex-col h-screen w-full ">
         <Header /> 
