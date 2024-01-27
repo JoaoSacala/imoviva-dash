@@ -17,7 +17,7 @@ export const usePropertiesApartment = () => {
             mode: 'all',
             resolver: zodResolver(schemaFormApartment), 
             defaultValues: {
-                tipo_imovel: 'Apartamento'
+                tipo: 'Apartamento'
             }
         })
 
@@ -26,7 +26,7 @@ export const usePropertiesApartment = () => {
 
         const formData = new FormData();
 
-        formData.append("tipo_imovel", data.tipo_imovel);
+        formData.append("tipo", data.tipo);
         formData.append("titulo", data.titulo );
         formData.append("preco", data.preco );
         formData.append("dimensoes", data.dimensoes );
@@ -36,14 +36,29 @@ export const usePropertiesApartment = () => {
         formData.append("quartos", data.quartos );
         formData.append("banheiros", data.banheiros );
         formData.append("suites", data.suites );
-        formData.append("detalhes", data.detalhes);
-        formData.append("tipo_anuncio", data.tipo_anuncio);
+        formData.append("descricao", data.descricao );
+        formData.append("tipo_anuncio", data.disp_para);
         
         for (let i = 0; i < data.fotos.length; i++) {
             formData.append("fotos", data.fotos[i]);
         }
+        await  Axios.post('api/propriedades/search', formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            }
+          })
+          .then(response => {
+            console.log(response.data);
+             
+            toast.success("Cadastrado com sucesso!")
+          })
+          .catch(err => {
+            err;
+            toast.error("Erro ao cadastrar!")
+          });
+        }
         
-        await  Axios.post('apartamentos', formData, {
+        /* await  Axios.post('apartamentos', formData, {
         headers: {
             "Content-Type": "multipart/form-data",
         }
@@ -55,8 +70,8 @@ export const usePropertiesApartment = () => {
       .catch(err => {
         err;
         toast.error("Erro ao cadastrar!")
-      });
-    }
+      }); 
+    }*/
     return {
         errors,
         register,
