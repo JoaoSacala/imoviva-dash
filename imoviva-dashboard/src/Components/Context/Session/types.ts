@@ -11,5 +11,4 @@ export type SessionContextType = {
     user: UserDataType | null
     setUser: React.Dispatch<React.SetStateAction<UserDataType | null>>
     token?: string | null,
-    handleLogut: ()=>void
 }
