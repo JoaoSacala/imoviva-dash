@@ -4,15 +4,23 @@ import { SideBarComponent } from "./Components/SideBar/SideBarComponent"
 import { Outlet } from "react-router-dom"
 import { Header } from "./Components/Header/Header"
 import SessionProvider from "./Components/Context/Session/sessionProvider"
-import { destroyCookie } from "nookies"
+import { Axios } from "./axios.config"
+import { destroyCookie, parseCookies } from "nookies"
 
 
 function App() {
 
-  function Logout() {
-    destroyCookie(undefined, "imoviva.token")
-    location.reload()
+  const handleLogut = async ()=> {
+    const { "imoviva.token": token } = parseCookies();
+
+    Axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+    await Axios.post("/logout");
+    
+    destroyCookie(undefined, "imoviva.token");
+    
+    window.location.reload();
   }
+
 
   return (
     <SessionProvider>
@@ -23,7 +31,7 @@ function App() {
           <SideBar.Items text="Dashboard" link="/dashboard" icon={PieChart} />
           <SideBar.Items text="Imoveis" link="/dashboard/properties" icon={Building2} />
           <SideBar.Items text="Funcionários" link="/dashboard/employee" icon={Users2} />
-          <button onClick={Logout}>
+          <button onClick={handleLogut}>
             <LogOut />
           </button>
         </SideBarComponent>

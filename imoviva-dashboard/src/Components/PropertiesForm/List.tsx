@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { test } from "../Typetest/types";
 import { Axios } from "../../axios.config";
+import { parseCookies } from "nookies";
 
 
 
@@ -8,11 +9,12 @@ export const Listar = () => {
     const [ValueLista, setValueLista] = useState <test[]> ([])
 
  async  function handleListProperties () {
-    await  Axios.get('imoveis')
-        .then(response => response.data)
-        .then(data => {
-            setValueLista(data)})
-        .catch(error =>{console.log(error)})
+    const { "imoviva.token": token } = parseCookies();
+
+    Axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+        const { data } = await  Axios.get('/propriedades')
+
+        setValueLista(data);
     } 
     useEffect(() => {
         handleListProperties() 
@@ -22,24 +24,24 @@ export const Listar = () => {
         <div>
             {ValueLista.map((lista, index: number) => (
                  <div key={index}>
-                    <div>{lista.tipo_imovel}</div>
-                    <div>{lista.tipo_anuncio}</div>
+                    <div>{lista.tipo}</div>
+                    <div>{lista.disp_para}</div>
                     <div>{lista.titulo}</div>
                     <div>{lista.preco}</div>
                     <div>{lista.dimensoes}</div>
                     <div>{lista.municipio}</div>
                     <div>{lista.distrito}</div>
                     <div>{lista.bairro}</div>
-                    <div className="flex items-center gap-2 w-[200px]">
+                   {/*  <div className="flex items-center gap-2 w-[200px]">
                         {Object.values(lista.fotos).map((foto, i) => (
-                            <img key={`${lista.tipo_imovel}-${i}`} src={`http://localhost:3333/files/${foto}`} alt={`Imagem ${i + 1}`} />
+                            <img key={`${lista.tipo}-${i}`} src={`http://localhost:3333/files/${foto}`} alt={`Imagem ${i + 1}`} />
                         ))}
-                    </div>
+                    </div> */}
 
                     <div>{lista.quartos}</div>
                     <div>{lista.banheiros}</div>
                     <div>{lista.suites}</div>
-                    <div>{lista.detalhes}</div>
+                    <div>{lista.descricao}</div>
                  </div>
                 
             ))}

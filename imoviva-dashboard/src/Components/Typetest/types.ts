@@ -1,5 +1,5 @@
 export type test =  {
-        tipo_imovel?: string,
+        tipo?: string,
         titulo: string,
         preco: string,
         dimensoes: string,
@@ -10,6 +10,7 @@ export type test =  {
         quartos?: string,
         banheiros?: string,
         suites?: string,
-        detalhes: string,
-        tipo_anuncio: string,
+        descricao: string,
+        disp_para: string,
+        status: string
 }

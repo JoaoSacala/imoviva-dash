@@ -16,7 +16,7 @@ export default function SessionProvider({ children }: { children: React.ReactNod
       if (token) {
         Axios.defaults.headers["Authorization"] = `Bearer ${token}`;
         try {
-          const { data: user } = await Axios.post("/administrador/validation");
+          const { data: user } = await Axios.post("/validation");
           setUser(user);
           console.log(user);
           
@@ -30,11 +30,15 @@ export default function SessionProvider({ children }: { children: React.ReactNod
     handleAuthenticated();
   }, [navigate]);
 
-  const handleLogut = ()=> {
-    //apagar os cookies "webschool.token"
+  const handleLogut = async ()=> {
+    const { "imoviva.token": token } = parseCookies();
+
+    Axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+    await Axios.post("/logout");
+    
     destroyCookie(undefined, "imoviva.token");
-    // e fazer reload da pagina 
-    navigate("/");
+    
+  //navigate("/");
   }
 
   return user && (

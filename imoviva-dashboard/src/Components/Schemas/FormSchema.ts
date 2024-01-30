@@ -14,6 +14,7 @@ export const schemaFormApartment = z.object({
         suites: z.string().min(1, 'Campo obrigatório'),
         descricao: z.string(),
         disp_para: z.string(),
+        status: z.string(),
 })
 
 export const schemaFormHouse = z.object({

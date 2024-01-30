@@ -17,7 +17,8 @@ export const usePropertiesApartment = () => {
             mode: 'all',
             resolver: zodResolver(schemaFormApartment), 
             defaultValues: {
-                tipo: 'Apartamento'
+                tipo: 'Apartamento',
+                status: 'Disponivel'
             }
         })
 
@@ -37,12 +38,13 @@ export const usePropertiesApartment = () => {
         formData.append("banheiros", data.banheiros );
         formData.append("suites", data.suites );
         formData.append("descricao", data.descricao );
-        formData.append("tipo_anuncio", data.disp_para);
+        formData.append("disp_para", data.disp_para);
+        formData.append("status", data.status);
         
         for (let i = 0; i < data.fotos.length; i++) {
             formData.append("fotos", data.fotos[i]);
         }
-        await  Axios.post('api/propriedades/search', formData, {
+        await  Axios.post('/propriedades/store', formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             }
