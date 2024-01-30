@@ -38,6 +38,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <RouterProvider router={router} />
       <ToastContainer />
     </ComponentRadio>
-    
   </React.StrictMode>,
 )

@@ -16,9 +16,10 @@ export default function SessionProvider({ children }: { children: React.ReactNod
       if (token) {
         Axios.defaults.headers["Authorization"] = `Bearer ${token}`;
         try {
-          const response = await Axios.post("/validate");
-          const { data: user } = response.data;
+          const { data: user } = await Axios.post("/administrador/validation");
           setUser(user);
+          console.log(user);
+          
         } catch (error) {
           console.error("Validation error:", error);
         }

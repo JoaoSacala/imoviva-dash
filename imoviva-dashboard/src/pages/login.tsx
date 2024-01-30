@@ -24,7 +24,7 @@ export default function Login() {
     async function handleLogin(data: FormDataLogin) {
         try {
             setLoading(true);
-            const response = await Axios.post("/register", { email: data.email, password: data.password});
+            const response = await Axios.post("/administrador/login", { email: data.email, senha: data.password});
 
             setCookie(undefined, "imoviva.token", response.data.token, {
                 maxAge: 60 * 60 * 24 * 7, //7 days
