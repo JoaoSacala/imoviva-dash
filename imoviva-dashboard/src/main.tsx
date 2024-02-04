@@ -11,6 +11,11 @@ import { DashboardPage } from './pages/dashboard.tsx'
 import { PropertiesPage } from './pages/properties.tsx'
 import { ComponentRadio } from './Components/Context/CreateContext.tsx'
 import Login from './pages/login.tsx';
+import { FormApartment } from './Components/PropertiesForm/Apartment.tsx';
+import { FormHouse } from './Components/PropertiesForm/House.tsx';
+import { FormCommercial } from './Components/PropertiesForm/Commercial.tsx';
+import { FormGround } from './Components/PropertiesForm/Ground.tsx';
+import { Listar } from './Components/PropertiesForm/List.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -25,8 +30,29 @@ export const router = createBrowserRouter([
         element: <DashboardPage />
       },
       {
-        path: "/dashboard/properties",
-        element: <PropertiesPage />
+        element: <PropertiesPage />,
+        children: [
+          {
+            path: "/dashboard/properties/apartment",
+            element: <FormApartment />
+          },
+          {
+            path: "/dashboard/properties/house",
+            element: <FormHouse />
+          },
+          {
+            path: "/dashboard/properties/commercial",
+            element: <FormCommercial />
+          },
+          {
+            path: "/dashboard/properties/ground",
+            element: <FormGround />
+          },
+          {
+            path: "/dashboard/properties/",
+            element: <Listar />
+          },
+        ]
       }
     ]
   }

@@ -3,7 +3,7 @@ import React from "react";
 
 export type UserDataType = {
     "id": number,
-    "nome": string,
+    "name": string,
     "email": string,
 }
 
