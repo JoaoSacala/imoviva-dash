@@ -6,7 +6,7 @@ import { parseCookies } from "nookies";
 
 
 export const Listar = () => {
-    const [ValueLista, setValueLista] = useState <test[]> ([])
+    const [ValueLista, setValueLista] = useState<test[]> ([])
 
  async  function handleListProperties () {
     const { "imoviva.token": token } = parseCookies();
@@ -32,12 +32,11 @@ export const Listar = () => {
                     <div>{lista.municipio}</div>
                     <div>{lista.distrito}</div>
                     <div>{lista.bairro}</div>
-                   {/*  <div className="flex items-center gap-2 w-[200px]">
+                   <div className="flex items-center gap-2 w-[200px]">
                         {Object.values(lista.fotos).map((foto, i) => (
-                            <img key={`${lista.tipo}-${i}`} src={`http://localhost:3333/files/${foto}`} alt={`Imagem ${i + 1}`} />
+                            <img key={`${lista.tipo}-${i}`} src={`http://localhost:8000/fotos/${foto}`} alt={`Imagem ${i + 1}`} />
                         ))}
-                    </div> */}
-
+                    </div>
                     <div>{lista.quartos}</div>
                     <div>{lista.banheiros}</div>
                     <div>{lista.suites}</div>

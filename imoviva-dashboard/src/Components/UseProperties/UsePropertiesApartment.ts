@@ -42,7 +42,7 @@ export const usePropertiesApartment = () => {
         formData.append("status", data.status);
         
         for (let i = 0; i < data.fotos.length; i++) {
-            formData.append("fotos", data.fotos[i]);
+            formData.append("fotos[]", data.fotos[i]);
         }
         await  Axios.post('/propriedades/store', formData, {
             headers: {

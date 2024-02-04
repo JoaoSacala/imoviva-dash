@@ -1,5 +1,5 @@
 export type test =  {
-        tipo?: string,
+        tipo: string,
         titulo: string,
         preco: string,
         dimensoes: string,
