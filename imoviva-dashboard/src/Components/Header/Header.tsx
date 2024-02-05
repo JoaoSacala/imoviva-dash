@@ -31,6 +31,9 @@ export const Header = () => {
                 <Link to="/dashboard/properties/ground">
                     <span>Terreno</span>
                 </Link>
+                <Link to="/dashboard/properties">
+                    <span>Listar</span>
+                </Link>
             </div>
             }
             <Avatar data={{
