@@ -1,9 +1,10 @@
+import { toast } from 'react-toastify';
 import { useForm } from "react-hook-form";
 import { FormHouseProps } from "../FormType/FormType";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schemaFormHouse } from "../Schemas/FormSchema";
 import { Axios } from "../../axios.config";
-import { toast } from "react-toastify";
+
 
 export const usePropertiesHouse = () => {
 
@@ -14,17 +15,19 @@ export const usePropertiesHouse = () => {
         } = useForm<FormHouseProps>({
             criteriaMode: 'all',
             mode: 'all',
-            resolver: zodResolver(schemaFormHouse),
+            resolver: zodResolver(schemaFormHouse), 
             defaultValues: {
-            tipo_imovel: 'Casa'
+                tipo: 'Apartamento',
+                status: 'Disponivel'
             }
         })
 
     const handleFormSubmit = async (data: FormHouseProps) => {
+        console.log(data);
 
         const formData = new FormData();
 
-        formData.append("tipo_imovel", data.tipo_imovel);
+        formData.append("tipo", data.tipo);
         formData.append("titulo", data.titulo );
         formData.append("preco", data.preco );
         formData.append("dimensoes", data.dimensoes );
@@ -34,26 +37,27 @@ export const usePropertiesHouse = () => {
         formData.append("quartos", data.quartos );
         formData.append("banheiros", data.banheiros );
         formData.append("suites", data.suites );
-        formData.append("detalhes", data.detalhes);
-        formData.append("tipo_anuncio", data.tipo_anuncio);
+        formData.append("descricao", data.descricao );
+        formData.append("disp_para", data.disp_para);
+        formData.append("status", data.status);
         
         for (let i = 0; i < data.fotos.length; i++) {
-            formData.append("fotos", data.fotos[i]);
+            formData.append("fotos[]", data.fotos[i]);
         }
-        await  Axios.post('imoveis', formData, {
+        
+        try {
+          const {status} = await Axios.post('/propriedades/store', formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             }
-          })
-          .then(response => {
-            response.data;
+           }) 
+           if (status === 200) {
             toast.success("Cadastrado com sucesso!")
-          })
-          .catch(err => {
-            err;
-            toast.error("Erro ao cadastrar!")
-          });
-    }
+           }
+        } catch (error) {
+          toast.error("Erro ao cadastrar!")
+        }
+        }
     return {
         errors,
         register,

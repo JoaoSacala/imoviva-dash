@@ -88,14 +88,14 @@ export const FormCommercial = () => {
                         )}
             </div>
             <TextArea
-                {...register('detalhes')}
+                {...register('descricao')}
                 label="Detalhes"
                 cols={70}
                 rows={10}
                 className="h-40"
             />
              <RentPurchase
-                {...register('tipo_anuncio')}
+                {...register('disp_para')}
             />
             <Button />
        </form>

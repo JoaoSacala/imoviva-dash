@@ -44,36 +44,20 @@ export const usePropertiesApartment = () => {
         for (let i = 0; i < data.fotos.length; i++) {
             formData.append("fotos[]", data.fotos[i]);
         }
-        await  Axios.post('/propriedades/store', formData, {
+        
+        try {
+          const {status} = await Axios.post('/propriedades/store', formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             }
-          })
-          .then(response => {
-            console.log(response.data);
-             
+           }) 
+           if (status === 200) {
             toast.success("Cadastrado com sucesso!")
-          })
-          .catch(err => {
-            err;
-            toast.error("Erro ao cadastrar!")
-          });
+           }
+        } catch (error) {
+          toast.error("Erro ao cadastrar!")
         }
-        
-        /* await  Axios.post('apartamentos', formData, {
-        headers: {
-            "Content-Type": "multipart/form-data",
         }
-      })
-      .then(response => {
-        response.data;
-        toast.success("Cadastrado com sucesso!")
-      })
-      .catch(err => {
-        err;
-        toast.error("Erro ao cadastrar!")
-      }); 
-    }*/
     return {
         errors,
         register,

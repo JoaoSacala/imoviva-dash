@@ -8,7 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { DashboardPage } from './pages/dashboard.tsx'
-import { PropertiesPage } from './pages/properties.tsx'
 import { ComponentRadio } from './Components/Context/CreateContext.tsx'
 import Login from './pages/login.tsx';
 import { FormApartment } from './Components/PropertiesForm/Apartment.tsx';
@@ -30,30 +29,25 @@ export const router = createBrowserRouter([
         element: <DashboardPage />
       },
       {
-        element: <PropertiesPage />,
-        children: [
-          {
-            path: "/dashboard/properties/apartment",
-            element: <FormApartment />
-          },
-          {
-            path: "/dashboard/properties/house",
-            element: <FormHouse />
-          },
-          {
-            path: "/dashboard/properties/commercial",
-            element: <FormCommercial />
-          },
-          {
-            path: "/dashboard/properties/ground",
-            element: <FormGround />
-          },
-          {
-            path: "/dashboard/properties/",
-            element: <Listar />
-          },
-        ]
-      }
+        path: "/dashboard/properties/apartment",
+        element: <FormApartment />
+      },
+      {
+        path: "/dashboard/properties/house",
+        element: <FormHouse />
+      },
+      {
+        path: "/dashboard/properties/commercial",
+        element: <FormCommercial />
+      },
+      {
+        path: "/dashboard/properties/ground",
+        element: <FormGround />
+      },
+      {
+        path: "/dashboard/properties/",
+        element: <Listar />
+      },
     ]
   }
 ])
