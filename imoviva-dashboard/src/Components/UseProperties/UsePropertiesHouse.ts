@@ -46,7 +46,7 @@ export const usePropertiesHouse = () => {
         }
         
         try {
-          const {status} = await Axios.post('/propriedades/store', formData, {
+          const {status} = await Axios.post('/propriedades/casas/store', formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             }

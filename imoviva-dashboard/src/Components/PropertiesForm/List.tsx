@@ -12,7 +12,7 @@ export const Listar = () => {
     const { "imoviva.token": token } = parseCookies();
 
     Axios.defaults.headers["Authorization"] = `Bearer ${token}`;
-        const { data } = await  Axios.get('/propriedades')
+    const { data } = await  Axios.get('/propriedades/listar')
 
         setValueLista(data);
     } 
@@ -41,6 +41,7 @@ export const Listar = () => {
                     <div>{lista.banheiros}</div>
                     <div>{lista.suites}</div>
                     <div>{lista.descricao}</div>
+                    <div>{lista.status}</div>
                  </div>
                 
             ))}
