@@ -15,7 +15,10 @@ export const SideBarRoot = ({ children}: AppRootProps) => {
             <div onClick={()=>sidebar(!valueSidebar) } className="absolute bg-orange-600 rounded-full text-white -right-3">
                 <ChevronLeft className="" />
             </div>
-            {children}
+            <div className="overflow-hidden">
+                {children}
+            </div>
+            
         </div>
     ) 
 }

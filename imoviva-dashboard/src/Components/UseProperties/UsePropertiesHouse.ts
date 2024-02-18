@@ -17,7 +17,7 @@ export const usePropertiesHouse = () => {
             mode: 'all',
             resolver: zodResolver(schemaFormHouse), 
             defaultValues: {
-                tipo: 'Apartamento',
+                tipo: 'Casa',
                 status: 'Disponivel'
             }
         })
