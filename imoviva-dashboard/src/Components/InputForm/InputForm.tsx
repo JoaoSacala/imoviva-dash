@@ -4,7 +4,7 @@ type InputProps = InputHTMLAttributes <HTMLInputElement> & {
     label?: string
 }
 
-export const InputForm = forwardRef<HTMLInputElement, InputProps> (({ type="", label="", name=",", ...props}, ref) => {
+export const InputForm = forwardRef<HTMLInputElement, InputProps> (({ type="", label="", name="", ...props}, ref) => {
     const inputId = useId()
     return (
         <div>

@@ -57,7 +57,7 @@ export const usePropertiesApartment = () => {
         } catch (error) {
           toast.error("Erro ao cadastrar!")
         }
-        }
+    }
     return {
         errors,
         register,
